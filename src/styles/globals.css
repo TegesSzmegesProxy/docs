@@ -1,0 +1,228 @@
+/* Scan only src/ for class names. */
+@import "tailwindcss" source("../");
+
+/* ---------------------------------------------------------------------------
+   Fonts — tokens/fonts.css, paths rewritten to /fonts/
+--------------------------------------------------------------------------- */
+@font-face{font-family:'Geist';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/Geist-300.woff2') format('woff2');}
+@font-face{font-family:'Geist';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Geist-400.woff2') format('woff2');}
+@font-face{font-family:'Geist';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/Geist-500.woff2') format('woff2');}
+@font-face{font-family:'Geist';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/Geist-600.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/JetBrainsMono-400.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/JetBrainsMono-500.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/JetBrainsMono-600.woff2') format('woff2');}
+@font-face{font-family:'Silkscreen';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Silkscreen-400.woff2') format('woff2');}
+
+/* ---------------------------------------------------------------------------
+   tokens/colors.css (verbatim)
+--------------------------------------------------------------------------- */
+:root{
+/* Bone — the base. Never pure white. */
+--bone-50:#F7F3EB;--bone-100:#F1EBE0;--bone-200:#EAE2D3;--bone-300:#DED4C2;--bone-400:#CBBFAA;--bone-500:#ADA08A;
+/* Stone — warm greys cut from the same rock */
+--stone-500:#8C8272;--stone-600:#6E655A;--stone-700:#4C463F;--stone-800:#33302C;
+/* Ink — the dark. From the brief: #1f1f1f */
+--ink-900:#1F1F1F;--ink-950:#171615;
+/* Tessera blue — primary accent (#43A4C4 from the brief) */
+--blue-100:#D7ECF2;--blue-300:#8CC8DB;--blue-500:#43A4C4;--blue-600:#2F86A4;--blue-700:#226680;
+/* Earth semantics — fired clay, verdigris, ochre */
+--clay-100:#F1DCD2;--clay-500:#B4492F;--clay-600:#943823;
+--verdigris-100:#D9E6DC;--verdigris-500:#4F7F5E;--verdigris-600:#3C6549;
+--ochre-100:#F0E3C6;--ochre-500:#B8862C;--ochre-600:#946A1D;
+/* Terracotta — the tessera itself, used for the token motif only */
+--terracotta-400:#C98A62;--terracotta-500:#B26F48;
+
+/* Semantic aliases — light (bone) */
+--surface-page:var(--bone-100);
+--surface-sunken:var(--bone-200);
+--surface-card:var(--bone-50);
+--surface-raised:var(--bone-50);
+--surface-inverse:var(--ink-900);
+--surface-glass:rgba(247,243,235,.72);
+--surface-glass-dark:rgba(31,31,31,.70);
+--text-strong:var(--ink-900);
+--text-body:var(--stone-800);
+--text-muted:var(--stone-600);
+--text-faint:var(--stone-500);
+--text-inverse:var(--bone-100);
+--text-link:var(--blue-700);
+--text-accent:var(--blue-700);
+--border-subtle:rgba(31,31,31,.08);
+--border-default:rgba(31,31,31,.14);
+--border-strong:rgba(31,31,31,.28);
+--border-glass:rgba(247,243,235,.22);
+--accent:var(--blue-500);
+--accent-hover:var(--blue-600);
+--accent-press:var(--blue-700);
+--accent-fg:var(--ink-900);
+--focus-ring:var(--blue-500);
+--status-blocked:var(--clay-500);--status-blocked-bg:var(--clay-100);
+--status-passed:var(--verdigris-500);--status-passed-bg:var(--verdigris-100);
+--status-review:var(--ochre-500);--status-review-bg:var(--ochre-100);
+--status-jev:var(--blue-600);--status-jev-bg:var(--blue-100);
+}
+.theme-bone{
+--surface-page:var(--bone-100);
+--surface-sunken:var(--bone-200);
+--surface-card:var(--bone-50);
+--surface-raised:var(--bone-50);
+--surface-inverse:var(--ink-900);
+--surface-glass:rgba(247,243,235,.72);
+--surface-glass-dark:rgba(31,31,31,.70);
+--text-strong:var(--ink-900);
+--text-body:var(--stone-800);
+--text-muted:var(--stone-600);
+--text-faint:var(--stone-500);
+--text-inverse:var(--bone-100);
+--text-link:var(--blue-700);
+--text-accent:var(--blue-700);
+--border-subtle:rgba(31,31,31,.08);
+--border-default:rgba(31,31,31,.14);
+--border-strong:rgba(31,31,31,.28);
+--border-glass:rgba(247,243,235,.22);
+--accent:var(--blue-500);
+--accent-hover:var(--blue-600);
+--accent-press:var(--blue-700);
+--accent-fg:var(--ink-900);
+--focus-ring:var(--blue-500);
+--status-blocked:var(--clay-500);--status-blocked-bg:var(--clay-100);
+--status-passed:var(--verdigris-500);--status-passed-bg:var(--verdigris-100);
+--status-review:var(--ochre-500);--status-review-bg:var(--ochre-100);
+--status-jev:var(--blue-600);--status-jev-bg:var(--blue-100);
+}
+.theme-ink{
+--surface-page:var(--ink-900);--surface-sunken:var(--ink-950);--surface-card:#272624;--surface-raised:#2E2C2A;
+--text-strong:var(--bone-100);--text-body:var(--bone-300);--text-muted:var(--bone-500);--text-faint:var(--stone-500);
+--text-link:var(--blue-300);--text-accent:var(--blue-300);
+--border-subtle:rgba(241,235,224,.07);--border-default:rgba(241,235,224,.13);--border-strong:rgba(241,235,224,.26);
+--status-blocked-bg:rgba(180,73,47,.18);--status-passed-bg:rgba(79,127,94,.2);--status-review-bg:rgba(184,134,44,.18);--status-jev-bg:rgba(67,164,196,.16);
+}
+
+/* ---------------------------------------------------------------------------
+   tokens/typography.css (verbatim)
+--------------------------------------------------------------------------- */
+:root{
+--font-sans:'Geist',ui-sans-serif,system-ui,sans-serif;
+--font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+--font-pixel:'Silkscreen','JetBrains Mono',monospace;
+--fw-light:300;/* @kind other */--fw-regular:400;/* @kind other */--fw-medium:500;/* @kind other */--fw-semibold:600;/* @kind other */
+/* Scale (px) */
+--fs-display-xl:88px;--fs-display:64px;--fs-h1:44px;--fs-h2:32px;--fs-h3:22px;--fs-lead:19px;--fs-body:16px;--fs-small:14px;--fs-caption:12px;--fs-micro:11px;
+--lh-tight:1.04;/* @kind other */--lh-snug:1.18;/* @kind other */--lh-normal:1.5;/* @kind other */--lh-code:1.65;/* @kind other */
+--ls-display:-0.035em;/* @kind other */--ls-heading:-0.02em;/* @kind other */--ls-body:-0.005em;/* @kind other */--ls-label:0.08em;/* @kind other */--ls-pixel:0.04em;/* @kind other */
+}
+
+/* ---------------------------------------------------------------------------
+   tokens/spacing.css (verbatim)
+--------------------------------------------------------------------------- */
+:root{
+--space-0:0;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--space-10:40px;--space-12:48px;--space-16:64px;--space-20:80px;--space-24:96px;--space-32:128px;
+--container:1200px;--container-narrow:760px;--gutter:24px;
+--control-sm:32px;--control-md:40px;--control-lg:48px;
+}
+
+/* ---------------------------------------------------------------------------
+   tokens/effects.css (verbatim)
+--------------------------------------------------------------------------- */
+:root{
+--radius-xs:3px;--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:22px;--radius-pill:999px;
+--shadow-1:0 1px 0 rgba(31,31,31,.04),0 1px 2px rgba(31,31,31,.06);
+--shadow-2:0 1px 0 rgba(31,31,31,.04),0 6px 16px -6px rgba(31,31,31,.14);
+--shadow-3:0 2px 0 rgba(31,31,31,.03),0 24px 48px -20px rgba(31,31,31,.28);
+--shadow-inset:inset 0 1px 0 rgba(255,255,255,.55);
+--blur-glass:18px;/* @kind other */
+--ease-out:cubic-bezier(.22,.8,.24,1);/* @kind other */--ease-in-out:cubic-bezier(.65,0,.35,1);/* @kind other */--ease-step:steps(4,end);/* @kind other */
+--dur-fast:120ms;/* @kind other */--dur-base:220ms;/* @kind other */--dur-slow:480ms;/* @kind other */--dur-reveal:700ms;/* @kind other */
+}
+
+/* ---------------------------------------------------------------------------
+   Tailwind theme — utilities resolve to the live variables above, so
+   .theme-ink / .theme-bone re-skin their children.
+--------------------------------------------------------------------------- */
+
+/* Drop Tailwind's default palette: colours come only from the tokens. */
+@theme {
+  --color-*: initial;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-pixel: var(--font-pixel);
+
+  --color-bone-50: var(--bone-50);   --color-bone-100: var(--bone-100); --color-bone-200: var(--bone-200);
+  --color-bone-300: var(--bone-300); --color-bone-400: var(--bone-400); --color-bone-500: var(--bone-500);
+  --color-stone-500: var(--stone-500); --color-stone-600: var(--stone-600);
+  --color-stone-700: var(--stone-700); --color-stone-800: var(--stone-800);
+  --color-ink-900: var(--ink-900); --color-ink-950: var(--ink-950);
+  --color-blue-100: var(--blue-100); --color-blue-300: var(--blue-300); --color-blue-500: var(--blue-500);
+  --color-blue-600: var(--blue-600); --color-blue-700: var(--blue-700);
+  --color-clay-100: var(--clay-100); --color-clay-500: var(--clay-500); --color-clay-600: var(--clay-600);
+  --color-verdigris-100: var(--verdigris-100); --color-verdigris-500: var(--verdigris-500); --color-verdigris-600: var(--verdigris-600);
+  --color-ochre-100: var(--ochre-100); --color-ochre-500: var(--ochre-500); --color-ochre-600: var(--ochre-600);
+  --color-terracotta-400: var(--terracotta-400); --color-terracotta-500: var(--terracotta-500);
+
+  --color-page: var(--surface-page);   --color-sunken: var(--surface-sunken);  --color-card: var(--surface-card);
+  --color-strong: var(--text-strong);  --color-body: var(--text-body);
+  --color-muted: var(--text-muted);    --color-faint: var(--text-faint);
+  --color-accent: var(--accent);       --color-accent-fg: var(--accent-fg);
+
+  --radius-xs: var(--radius-xs); --radius-sm: var(--radius-sm); --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg); --radius-xl: var(--radius-xl);
+
+  --shadow-1: var(--shadow-1); --shadow-2: var(--shadow-2); --shadow-3: var(--shadow-3);
+
+  --ease-out: var(--ease-out);
+}
+
+/* ---------------------------------------------------------------------------
+   tokens/base.css
+--------------------------------------------------------------------------- */
+@layer base {
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-sans);font-size:var(--fs-body);line-height:var(--lh-normal);letter-spacing:var(--ls-body)}
+  a{color:var(--text-link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+  a:hover{color:var(--text-strong)}
+  ::selection{background:var(--blue-100);color:var(--ink-900)}
+  .pixelated{image-rendering:pixelated;image-rendering:crisp-edges}
+
+  :focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+  @media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+}
+
+/* ---------------------------------------------------------------------------
+   Component constants — literal values copied from the DS component sources
+--------------------------------------------------------------------------- */
+:root{
+  /* Terminal.jsx window border */
+  --terminal-border:#2c2a28;
+}
+
+/* Ticket.jsx — notched admission-ticket mask */
+@utility ticket-notch {
+  -webkit-mask: radial-gradient(circle at 0 50%, transparent 7px, #000 7.5px) left/51% 100% no-repeat, radial-gradient(circle at 100% 50%, transparent 7px, #000 7.5px) right/51% 100% no-repeat;
+  mask: radial-gradient(circle at 0 50%, transparent 7px, #000 7.5px) left/51% 100% no-repeat, radial-gradient(circle at 100% 50%, transparent 7px, #000 7.5px) right/51% 100% no-repeat;
+}
+
+/* ---------------------------------------------------------------------------
+   Docs additions
+--------------------------------------------------------------------------- */
+:root{--header-h:57px}
+@layer base {
+  html{scroll-padding-top:calc(var(--header-h) + 16px)}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  h1,h2,h3{text-wrap:balance}
+  [id]{scroll-margin-top:calc(var(--header-h) + 16px)}
+}
+@keyframes fade-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.fade-up{animation:fade-up var(--dur-base) var(--ease-out) both}
+@media (prefers-reduced-motion: reduce){.fade-up{animation:none}}
+
+/* highlight.js tokens on ink (#1F1F1F). Comments use bone-500: stone-500 measures 4.35:1 there, under 4.5:1. */
+.hljs{background:transparent;color:var(--bone-100)}
+.hljs-keyword,.hljs-selector-tag,.hljs-built_in,.hljs-type,.hljs-name,.hljs-attr,.hljs-title,.hljs-section{color:var(--blue-300)}
+.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute{color:#B7D6BF}
+.hljs-number,.hljs-literal,.hljs-symbol,.hljs-variable,.hljs-template-variable,.hljs-meta{color:var(--ochre-100)}
+.hljs-comment,.hljs-quote{color:var(--bone-500)}
+.hljs-deletion{color:var(--clay-100)}
