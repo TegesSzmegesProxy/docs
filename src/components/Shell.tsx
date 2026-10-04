@@ -24,7 +24,7 @@ export function Header({ onMenu, onSearch, menuId, menuOpen, searchRef }: { onMe
         <kbd className="font-mono text-[11px] text-faint max-sm:hidden">{mac ? '⌘K' : 'Ctrl K'}</kbd>
         <span className="sr-only sm:hidden">Search</span>
       </button>
-      <a href="../landing/" className="text-[14px] text-body no-underline hover:text-strong hover:underline max-sm:hidden">Tessera home</a>
+      <a href="https://tegesszmegesproxy.github.io/landing/" className="text-[14px] text-body no-underline hover:text-strong hover:underline max-sm:hidden">Tessera home</a>
     </header>
   );
 }
